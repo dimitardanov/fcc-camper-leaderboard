@@ -3,10 +3,62 @@ import './Table.css';
 
 class Table extends Component {
   state = {
-    allTime: [],
-    last30: []
+    allTime: null,
+    last30: null,
+    active: null,
+    error: false
   }
 
+  _fetchData(url, key, sortKey) {
+    if (!this.state[key]) {
+      fetch(url)
+        .then(resp => {
+          if (resp.ok) {
+            return resp.json();
+          }
+          throw new Error('something went wrong');
+        })
+        .catch(error => {
+          console.log(error);
+          this.setState({
+            error: true
+          });
+        })
+        .then(data => {
+          data = data.sort((a, b) => b[sortKey] - a[sortKey]);
+          this.setState({
+            [key]: data,
+            active: key,
+            error: false
+          });
+          console.log(this.state);
+        });
+    } else {
+      this.setState({
+        active: key
+      });
+    }
+  }
+
+  _fetchAllTime() {
+    this._fetchData(
+      'https://fcctop100.herokuapp.com/api/fccusers/top/alltime',
+      'allTime',
+      'alltime'
+    );
+  }
+
+  _fetchLast30() {
+    this._fetchData(
+      'https://fcctop100.herokuapp.com/api/fccusers/top/recent',
+      'last30',
+      'recent'
+    );
+  }
+
+  componentDidMount() {
+    this._fetchAllTime();
+  }
 
   render() {
     return (
