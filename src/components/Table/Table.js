@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './Table.css';
 import LoadingRow from './LoadingRow/LoadingRow';
+import ErrorRow from './ErrorRow/ErrorRow';
 
 class Table extends Component {
   state = {
@@ -63,6 +64,9 @@ class Table extends Component {
 
   render() {
     let tableBody = <LoadingRow />;
+    if (this.state.error) {
+      tableBody = <ErrorRow />;
+    }
     return (
       <table>
         <caption>Leaderboard</caption>
