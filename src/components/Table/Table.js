@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './Table.css';
 import LoadingRow from './LoadingRow/LoadingRow';
 import ErrorRow from './ErrorRow/ErrorRow';
+import DataRow from './DataRow/DataRow';
 
 class Table extends Component {
   state = {
@@ -59,13 +60,24 @@ class Table extends Component {
   }
 
   componentDidMount() {
-    // this._fetchAllTime();
+    this._fetchLast30();
   }
 
   render() {
     let tableBody = <LoadingRow />;
     if (this.state.error) {
       tableBody = <ErrorRow />;
+    } else if (this.state.active) {
+      tableBody = this.state[this.state.active].map((row, index) => {
+        return (
+          <DataRow
+            key={index}
+            position={index+1}
+            username={row.username}
+            alltime={row.alltime}
+            recent={row.recent} />
+        );
+      });
     }
     return (
       <table>
