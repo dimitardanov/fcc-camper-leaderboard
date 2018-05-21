@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './Table.css';
+import LoadingRow from './LoadingRow/LoadingRow';
 
 class Table extends Component {
   state = {
@@ -57,10 +58,11 @@ class Table extends Component {
   }
 
   componentDidMount() {
-    this._fetchAllTime();
+    // this._fetchAllTime();
   }
 
   render() {
+    let tableBody = <LoadingRow />;
     return (
       <table>
         <caption>Leaderboard</caption>
@@ -76,12 +78,7 @@ class Table extends Component {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>Camper</td>
-            <td>12</td>
-            <td>123</td>
-          </tr>
+          {tableBody}
         </tbody>
       </table>
     );
