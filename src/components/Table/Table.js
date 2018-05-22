@@ -63,6 +63,24 @@ class Table extends Component {
     this._fetchLast30();
   }
 
+  last30Handler = () => {
+    if (!this.state.last30) {
+      this.setState({active: null});
+      this._fetchLast30();
+    } else {
+      this.setState({active: 'last30'});
+    }
+  }
+
+  allTimeHandler = () => {
+    if (!this.state.allTime) {
+      this.setState({active: null});
+      this._fetchAllTime();
+    } else {
+      this.setState({active: 'allTime'});
+    }
+  }
+
   render() {
     let tableBody = <LoadingRow />;
     if (this.state.error) {
@@ -89,8 +107,8 @@ class Table extends Component {
             <th colSpan="2">Points Earned</th>
           </tr>
           <tr>
-            <th>Last 30 days</th>
-            <th>All Time</th>
+            <th onClick={this.last30Handler}>Last 30 days</th>
+            <th onClick={this.allTimeHandler}>All Time</th>
           </tr>
         </thead>
         <tbody>
