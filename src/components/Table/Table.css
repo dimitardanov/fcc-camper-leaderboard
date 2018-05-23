@@ -39,7 +39,7 @@ th {
 }
 
 .button.active {
-  background-color: lightgreen;
+  background-color: rgba(0, 128, 0, 0.15);
 }
 
 .button.active:hover {

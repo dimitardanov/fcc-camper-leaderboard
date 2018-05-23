@@ -111,8 +111,14 @@ class Table extends Component {
             <th colSpan="2">Points Earned</th>
           </tr>
           <tr>
-            <th onClick={this.last30Handler} className="button">Last 30 days</th>
-            <th onClick={this.allTimeHandler} className="button">All Time</th>
+            <th
+              onClick={this.last30Handler}
+              className={this.state.active === 'last30' ? 'button active' : 'button'}
+            >Last 30 days</th>
+            <th
+              onClick={this.allTimeHandler}
+              className={this.state.active === 'allTime' ? 'button active' : 'button'}
+            >All Time</th>
           </tr>
         </thead>
         <tbody>
