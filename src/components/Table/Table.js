@@ -5,6 +5,7 @@ import './Table.css';
 import LoadingRow from './LoadingRow/LoadingRow';
 import ErrorRow from './ErrorRow/ErrorRow';
 import DataRow from './DataRow/DataRow';
+import THButton from './THButton/THButton';
 
 class Table extends Component {
   state = {
@@ -129,14 +130,14 @@ class Table extends Component {
             <th colSpan="2">Points Earned</th>
           </tr>
           <tr>
-            <th
-              onClick={this.last30Handler}
-              className={this.state.active === 'last30' ? 'button active' : 'button'}
-            >Last 30 days</th>
-            <th
-              onClick={this.allTimeHandler}
-              className={this.state.active === 'allTime' ? 'button active' : 'button'}
-            >All Time</th>
+            <THButton
+              handler={this.last30Handler}
+              active={this.state.active}
+            type='last30'>Last 30 days</THButton>
+            <THButton
+              handler={this.allTimeHandler}
+              active={this.state.active}
+            type='allTime'>All Time</THButton>
           </tr>
         </thead>
         <tbody className={this.state.fixed ? 'fixed-tbody' : ''}>
