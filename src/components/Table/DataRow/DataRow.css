@@ -1,3 +1,33 @@
-tbody tr:nth-child(odd) {
+tr.data-row:nth-child(odd) {
   background-color: #efefef;
+}
+
+td.camper {
+  text-align: left;
+}
+
+td.camper a {
+  display: block;
+  color: green;
+}
+
+td.camper:hover a {
+  text-shadow: 0 0 5px lightgreen;
+}
+
+td.camper:hover img {
+  box-shadow: 0 0 5px lightgreen;
+}
+
+td.score {
+  text-align: right;
+  padding-right: 40px;
+}
+
+.avatar {
+  height: 30px;
+  vertical-align: middle;
+  margin-right: 20px;
+  border-radius: 4px;
+  border: 1px solid green;
 }

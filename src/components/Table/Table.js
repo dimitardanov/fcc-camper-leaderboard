@@ -93,6 +93,7 @@ class Table extends Component {
           <DataRow
             key={index}
             position={index+1}
+            avatar={row.img}
             username={row.username}
             alltime={row.alltime}
             recent={row.recent} />
