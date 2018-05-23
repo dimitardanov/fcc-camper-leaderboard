@@ -11,7 +11,8 @@ class Table extends Component {
     allTime: null,
     last30: null,
     active: null,
-    error: false
+    error: false,
+    fixed: false
   }
 
   _fetchData(url, key, sortKey) {
@@ -62,7 +63,18 @@ class Table extends Component {
   }
 
   componentDidMount() {
+    this._addScrollEvent();
     this._fetchLast30();
+  }
+
+  _addScrollEvent() {
+    window.addEventListener('scroll', (event) => {
+      if (window.scrollY > 162 && !this.state.fixed) {
+        this.setState({fixed: true});
+      } else if (window.scrollY < 162 && this.state.fixed) {
+        this.setState({fixed: false});
+      }
+    })
   }
 
   last30Handler = () => {
@@ -110,7 +122,7 @@ class Table extends Component {
     return (
       <table>
         <caption>Leaderboard</caption>
-        <thead>
+        <thead className={this.state.fixed ? 'fixed-header' : ''}>
           <tr>
             <th rowSpan="2"><FontAwesomeIcon icon={faTrophy} /></th>
             <th rowSpan="2">Camper</th>
@@ -127,7 +139,7 @@ class Table extends Component {
             >All Time</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className={this.state.fixed ? 'fixed-tbody' : ''}>
           {tableBody}
         </tbody>
       </table>
