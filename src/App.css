@@ -4,4 +4,8 @@
 
 h1 {
   text-align: center;
+  color: green;
+  margin-top: 22px;
+  font-size: 36px;
+  line-height: 36px;
 }
