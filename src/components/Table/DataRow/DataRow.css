@@ -24,6 +24,10 @@ td.score {
   padding-right: 40px;
 }
 
+td.in-order {
+  background-color: rgba(0, 128, 0, 0.15);
+}
+
 .avatar {
   height: 30px;
   vertical-align: middle;

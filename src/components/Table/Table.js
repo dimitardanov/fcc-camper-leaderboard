@@ -96,7 +96,8 @@ class Table extends Component {
             avatar={row.img}
             username={row.username}
             alltime={row.alltime}
-            recent={row.recent} />
+            recent={row.recent}
+            active={this.state.active} />
         );
       });
     }

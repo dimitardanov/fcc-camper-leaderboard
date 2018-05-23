@@ -14,8 +14,8 @@ const dataRow = (props) => {
           />{props.username}
         </a>
       </td>
-      <td className="score">{props.recent}</td>
-      <td className="score">{props.alltime}</td>
+      <td className={props.active === 'last30' ? 'score in-order' : 'score'}>{props.recent}</td>
+      <td className={props.active === 'allTime' ? 'score in-order' : 'score'}>{props.alltime}</td>
     </tr>
   );
 };
