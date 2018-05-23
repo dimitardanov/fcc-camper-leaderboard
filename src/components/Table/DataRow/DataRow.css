@@ -28,6 +28,10 @@ td.in-order {
   background-color: rgba(0, 128, 0, 0.15);
 }
 
+td.in-order:nth-child(3) {
+  border-right: 1px solid rgba(0, 128, 0, 0.15);
+}
+
 .avatar {
   height: 30px;
   vertical-align: middle;
