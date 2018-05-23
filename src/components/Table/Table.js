@@ -70,7 +70,10 @@ class Table extends Component {
       this.setState({active: null});
       this._fetchLast30();
     } else {
-      this.setState({active: 'last30'});
+      this.setState({
+        active: 'last30',
+        error: false
+      });
     }
   }
 
@@ -79,7 +82,10 @@ class Table extends Component {
       this.setState({active: null});
       this._fetchAllTime();
     } else {
-      this.setState({active: 'allTime'});
+      this.setState({
+        active: 'allTime',
+        error: false
+      });
     }
   }
 
