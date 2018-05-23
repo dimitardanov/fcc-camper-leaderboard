@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import faTrophy from '@fortawesome/fontawesome-free-solid/faTrophy'
 import './Table.css';
 import LoadingRow from './LoadingRow/LoadingRow';
 import ErrorRow from './ErrorRow/ErrorRow';
@@ -102,7 +104,7 @@ class Table extends Component {
         <caption>Leaderboard</caption>
         <thead>
           <tr>
-            <th rowSpan="2">Position</th>
+            <th rowSpan="2"><FontAwesomeIcon icon={faTrophy} /></th>
             <th rowSpan="2">Camper</th>
             <th colSpan="2">Points Earned</th>
           </tr>
