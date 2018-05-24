@@ -26,7 +26,6 @@ class Table extends Component {
           throw new Error('something went wrong');
         })
         .catch(error => {
-          console.log(error);
           this.setState({
             error: true
           });
@@ -38,7 +37,6 @@ class Table extends Component {
             active: key,
             error: false
           });
-          console.log(this.state);
         });
     } else {
       this.setState({
